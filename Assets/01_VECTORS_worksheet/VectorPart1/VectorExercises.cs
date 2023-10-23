@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class VectorExercises : MonoBehaviour
@@ -36,40 +37,82 @@ public class VectorExercises : MonoBehaviour
 
     public void CalculateGameDimensions()
     {
+        GameHeight = Camera.main.orthographicSize * 2f;
+        GameWidth = Camera.main.aspect * GameHeight;
 
+        maxX = GameWidth / 2;
+        maxY = GameHeight / 2;
+        minX = -maxY;
+        minY = -minY;
     }
 
     void Question2a()
     {
+        startPt = new Vector2(0, 0);
+        endPt = new Vector2(2, 3);
+
+        drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
+        drawnLine.EnableDrawing(true);
+
+        Vector2 vec2 = endPt - startPt;
+        Debug.Log("Magnitude = " + vec2.magnitude);
 
     }
 
     void Question2b(int n)
     {
+        maxX = 5; maxY = 5;
+        for (int i = 0; i < n; i++)
+        {
+            startPt = new Vector2(
+                Random.Range(-maxX, maxX),
+                Random.Range(-maxY, maxY)
+            );
+
+
+            endPt = new Vector2(
+                Random.Range(-maxX, maxX),
+                Random.Range(-maxY, maxY)
+            );
+
+            drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
+            drawnLine.EnableDrawing(true);
+        }
 
     }
 
     void Question2d()
     {
-
+        DebugExtension.DebugArrow(
+            new Vector3(0, 0, 0),
+            new Vector3(5, 5, 0),
+            Color.red,
+            60f);
     }
 
     void Question2e(int n)
     {
+        maxX = 5f; maxY = 5f;
         for (int i = 0; i < n; i++)
         {
             startPt = new Vector2(
                 Random.Range(-maxX, maxX), 
-                Random.Range(-maxY, maxY));
+                Random.Range(-maxY, maxY)
+            );
 
-            // Your code here
-            // ...
 
-            //DebugExtension.DebugArrow(
-            //    new Vector3(0, 0, 0),
-            //    // Your code here,
-            //    Color.white,
-            //    60f);
+            endPt = new Vector2(
+                Random.Range(-maxX, maxX),
+                Random.Range(-maxY, maxY)
+            );
+
+            float zCoord = Random.Range( maxY, -maxY);
+
+            DebugExtension.DebugArrow(
+                new Vector3(0,0, 0),
+                new Vector3(endPt.x, endPt.y, zCoord),
+                Color.white,
+                60f);
         }  
     }
 

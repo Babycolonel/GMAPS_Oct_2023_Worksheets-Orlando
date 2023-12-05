@@ -1,58 +1,58 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
+// using system.collections;
+// using system.collections.generic;
+// using unityengine;
 
-// public class PoolCue : MonoBehaviour
+// public class poolcue : monobehaviour
 // {
-// 	public LineFactory lineFactory;
-// 	public GameObject ballObject;
+// 	public linefactory linefactory;
+// 	public gameobject ballobject;
 
-// 	private Line drawnLine;
-// 	private Ball2D ball;
+// 	private line drawnline;
+// 	private ball2d ball;
 
-// 	private void Start()
+// 	private void start()
 // 	{
-// 		ball = ballObject.GetComponent<Ball2D>();
+// 		ball = ballobject.getcomponent<ball2d>();
 // 	}
 
-// 	void Update()
+// 	void update()
 // 	{
-// 		if (Input.GetMouseButtonDown(0))
+// 		if (input.getmousebuttondown(0))
 // 		{
-// 			var startLinePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Start line drawing
-// 			if (ball != null && ball.IsCollidingWith(/*your code here*/))
+// 			var startlinepos = camera.main.screentoworldpoint(input.mouseposition); // start line drawing
+// 			if (ball != null && ball.iscollidingwith(/*your code here*/))
 // 			{
-// 				drawnLine = /*your code here*/;
-// 				drawnLine.EnableDrawing(true);
+// 				drawnline = /*your code here*/;
+// 				drawnline.enabledrawing(true);
 // 			}
 // 		}
-// 		else if (Input.GetMouseButtonUp(0) && drawnLine != null)
+// 		else if (input.getmousebuttonup(0) && drawnline != null)
 // 		{
-// 			drawnLine.EnableDrawing(false);
+// 			drawnline.enabledrawing(false);
 
 // 			//update the velocity of the white ball.
-// 			HVector2D v = new HVector2D(/*your code here*/);
+// 			hvector2d v = new hvector2d(/*your code here*/);
 // 			ball./*your code here*/ = v;
 
-// 			drawnLine = null; // End line drawing            
+// 			drawnline = null; // end line drawing            
 // 		}
 
-// 		if (drawnLine != null)
+// 		if (drawnline != null)
 // 		{
-// 			drawnLine.end = /*your code here*/; // Update line end
+// 			drawnline.end = /*your code here*/; // update line end
 // 		}
 // 	}
 
 // 	/// <summary>
-// 	/// Get a list of active lines and deactivates them.
+// 	/// get a list of active lines and deactivates them.
 // 	/// </summary>
-// 	public void Clear()
+// 	public void clear()
 // 	{
-// 		var activeLines = lineFactory.GetActive();
+// 		var activelines = linefactory.getactive();
 
-// 		foreach (var line in activeLines)
+// 		foreach (var line in activelines)
 // 		{
-// 			line.gameObject.SetActive(false);
+// 			line.gameobject.setactive(false);
 // 		}
 // 	}
 // }

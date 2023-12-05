@@ -101,20 +101,16 @@ public class VectorExercises : MonoBehaviour
             );
 
 
-            endPt = new Vector2(
-                Random.Range(-maxX, maxX),
-                Random.Range(-maxY, maxY)
-            );
-
             float zCoord = Random.Range( maxY, -maxY);
 
             DebugExtension.DebugArrow(
                 new Vector3(0,0, 0),
-                new Vector3(endPt.x, endPt.y, zCoord),
+                new Vector3(startPt.x, endPt.y, zCoord),
                 Color.white,
                 60f);
         }  
     }
+
 
     public void Question3a()
     {

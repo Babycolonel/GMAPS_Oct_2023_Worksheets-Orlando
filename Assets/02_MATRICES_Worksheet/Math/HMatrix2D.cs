@@ -87,19 +87,7 @@ public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
             left.Entries[1, 0] * right.x + left.Entries[1, 1] * right.y + left.Entries[1, 2] * right.h
         );
     }
-    //Added this because it wasnt in the script
-    public class HVector2D
-    {
-        public float x;
-        public float y;
-        public float h;
-        public HVector2D(float _x, float _y)
-        {
-            x = _x;
-            y = _y;
-            h = 1.0f;
-        }
-    }
+
 
     // Note that the second argument is a HMatrix2D object
 
@@ -179,22 +167,30 @@ public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
                 }
             }
         }
+    */
+    public void SetTranslationMat(float transX, float transY)
+    {
+        SetIdentity();
 
-        public void setTranslationMat(float transX, float transY)
-        {
-            // your code here
-        }
+        Entries[0,2] = transX;
+        Entries[1,2] = transY;
+    }
 
-        public void setRotationMat(float rotDeg)
-        {
-            // your code here
-        }
+    public void SetRotationMat(float rotDeg)
+    {
+        SetIdentity();
+
+        float rad = rotDeg * Mathf.Deg2Rad;
+        Entries[0, 0] = Mathf.Cos(rad);
+        Entries[0, 1] = -Mathf.Sin(rad);
+        Entries[1, 0] = Mathf.Sin(rad);
+        Entries[1, 1] = Mathf.Cos(rad);
+    }
 
         public void setScalingMat(float scaleX, float scaleY)
         {
             // your code here
         }
-        */
     public void Print()
     {
         string result = "";

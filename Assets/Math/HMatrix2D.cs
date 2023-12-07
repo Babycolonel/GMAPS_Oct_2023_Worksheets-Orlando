@@ -42,24 +42,39 @@ public class HMatrix2D
         Entries[2, 1] = m21;
         Entries[2, 2] = m22;
     }
-    /*
-    public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
-    {
-        //      return // your code here
-    }
+
+public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
+{
+    HMatrix2D result = new HMatrix2D();
+
+    for (int x = 0; x < 4; x++)
+        for (int y = 0; y < 4; y++)
+            result.Entries[x, y] = left.Entries[x, y] + right.Entries[x, y];
+    return result;
+}
 
     public static HMatrix2D operator -(HMatrix2D left, HMatrix2D right)
     {
-        //      return // your code here
-    }
+        HMatrix2D result = new HMatrix2D();
 
+        for (int x = 0; x < 4; x++)
+            for (int y = 0; y < 4; y++)
+                result.Entries[x, y] = left.Entries[x, y] - right.Entries[x, y];
+        return result;
+    }
     public static HMatrix2D operator *(HMatrix2D left, float scalar)
     {
-        //    return // your code here
+        HMatrix2D result = new HMatrix2D();
+
+        for (int x = 0; x < 4; x++)
+            for (int y = 0; y < 4; y++)
+                result.Entries[x, y] = left.Entries[x, y] * scalar;
+        return result;
     }
 
     // Note that the second argument is a HVector2D object
     //
+    /*
     public static HVector2D operator *(HMatrix2D left, HVector2D right)
     {
         //     return // your code here
@@ -86,71 +101,79 @@ public class HMatrix2D
             left.Entries[2, 0] * right.Entries[0, 1] + left.Entries[2, 1] * right.Entries[1, 1] + left.Entries[2, 2] * right.Entries[2, 1],
             left.Entries[2, 0] * right.Entries[0, 2] + left.Entries[2, 1] * right.Entries[1, 2] + left.Entries[2, 2] * right.Entries[2, 2]
         );
-    } 
-    /*
-    public static bool operator ==(HMatrix2D left, HMatrix2D right)
-    {
-        // your code here
     }
+    
+public static bool operator ==(HMatrix2D left, HMatrix2D right)
+{
+    for (int x = 0; x < 4; x++)
+        for (int y = 0; y < 4; y++)
+            if (left.Entries[x, y] != right.Entries[x, y])
+                return false;
+    return true;
+}
 
     public static bool operator !=(HMatrix2D left, HMatrix2D right)
     {
-        // your code here
+        for (int x = 0; x < 4; x++)
+            for (int y = 0; y < 4; y++)
+                if (left.Entries[x, y] != right.Entries[x, y])
+                    return true;
+        return false;
     }
-
-    public override bool Equals(object obj)
-    {
-        // your code here
-    }
-
-    public override int GetHashCode()
-    {
-        // your code here
-    }
-
-    public HMatrix2D transpose()
-    {
-       // return // your code here
-    }
-
-    public float getDeterminant()
-    {
-     //   return // your code here
-    }
-
-    public void setIdentity()
-    {
-        for (int y = 0; y < 3 ; y++)
+    /*
+        public override bool Equals(object obj)
         {
-            for (int x = 0; x < 3 ; x++)
+            // your code here
+        }
+
+        public override int GetHashCode()
+        {
+            // your code here
+        }
+
+        public HMatrix2D transpose()
+        {
+           // return // your code here
+        }
+
+        public float getDeterminant()
+        {
+         //   return // your code here
+        }
+
+        public void setIdentity()
+        {
+            for (int y = 0; y < 3 ; y++)
             {
-                if(x == y)
+                for (int x = 0; x < 3 ; x++)
                 {
-                    Entries[y, x] = 1;
-                }
-                else
-                {
-                    Entries[y,x] = 0;
+                    if(x == y)
+                    {
+                        Entries[y, x] = 1;
+                    }
+                    else
+                    {
+                        Entries[y,x] = 0;
+                    }
                 }
             }
         }
-    }
 
-    public void setTranslationMat(float transX, float transY)
-    {
-        // your code here
-    }
+        public void setTranslationMat(float transX, float transY)
+        {
+            // your code here
+        }
 
-    public void setRotationMat(float rotDeg)
-    {
-        // your code here
-    }
+        public void setRotationMat(float rotDeg)
+        {
+            // your code here
+        }
 
-    public void setScalingMat(float scaleX, float scaleY)
-    {
-        // your code here
-    }
-    */
+        public void setScalingMat(float scaleX, float scaleY)
+        {
+            // your code here
+        }
+        */
     public void Print()
     {
         string result = "";

@@ -39,7 +39,14 @@ public class TransformMesh : MonoBehaviour
     void Rotate(float angle)
     {
 
-        rotateMatrix.setRotationMat(angle);
+        HMatrix2D toOriginMatrix = new HMatrix2D();
+        HMatrix2D fromOriginMatrix = new HMatrix2D();
+        HMatrix2D rotateMatrix = new HMatrix2D();
+
+        toOriginMatrix.SetTranslationMat(-pos.x, -pos.y);
+        fromOriginMatrix.SetTranslationMat(pos.x, pos.y);
+
+        rotateMatrix.SetRotationMat(angle);
 
         transformMatrix.SetIdentity();
         transformMatrix = fromOriginMatrix * rotateMatrix * toOriginMatrix;
